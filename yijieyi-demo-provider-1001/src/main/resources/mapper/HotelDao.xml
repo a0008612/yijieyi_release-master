@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marry.dao.HotelDao">
+    <sql id="tb_hotel">
+        hotel_id,hotel_name,hotel_price,hotel_type,hotel_address,hotel_tables,hotel_banquet,hotel_images
+    </sql>
+    <!--查询全部旅馆-->
+    <select id="listAllHotel" resultType="com.marry.entity.Hotel">
+        SELECT
+        <include refid="tb_hotel"/>
+        FROM hotel
+    </select>
+
+    <!--分页查询全部旅馆-->
+    <select id="listAllHotelByPage" resultType="com.marry.entity.Hotel">
+        SELECT
+        <include refid="tb_hotel"/>
+        FROM hotel
+        limit #{pageVO.offset},#{pageVO.pageSize}
+    </select>
+
+
+
+
+</mapper>

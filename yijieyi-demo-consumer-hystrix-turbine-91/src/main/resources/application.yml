@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: demo-consumer-hystrix-turbine-91
+
+server:
+  port: 91
+  context-path: /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka2001.marry.com:2001/eureka/,http://eureka2002.marry.com:2002/eureka/
+turbine:
+  app-config: qiujie_consumer88  #要监视的消费者者应用名称
+  clusterNameExpression: "'default'"
+#  aggregator:
+#    cluster-config: default #表示集群的名字为default
+
+  

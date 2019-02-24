@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marry.dao.StudentDao">
+    <select id="list" resultType="com.marry.entity.Student">
+        SELECT id,name,grade FROM t_student
+    </select>
+    <select id="findById" resultType="com.marry.entity.Student">
+        SELECT id,name,grade FROM t_student where id=#{id}
+    </select>
+</mapper>

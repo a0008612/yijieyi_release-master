@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.marry.dao.MerchDao">
+
+    <sql id="tb_merch">
+        merch_name,merch_shname,merch_cel,merch_mail,merch_jobtype,merch_city,merch_desc
+    </sql>
+
+    <!--增加merch-->
+    <insert id="addMerch" parameterType="com.marry.entity.Merch">
+        INSERT INTO
+        merch(
+        <include refid="tb_merch"/>
+        )
+        VALUES(
+        #{merch.merch_name},#{merch.merch_shname},#{merch.merch_cel},#{merch.merch_mail},#{merch.merch_jobtype},#{merch.merch_city},#{merch.merch_desc}
+        )
+    </insert>
+
+
+</mapper>
