@@ -1,0 +1,58 @@
+server:
+  port: 9901
+  context-path: /
+
+mybatis:
+  typeAliasesPackage:
+  mapperLocations: classpath:mapper/*.xml
+
+http:
+  encoding.charset: UTF-8
+  encoding.enable: true
+  encoding.force: true
+
+# 数据源配置
+spring:
+  application: 
+    name: qiujie
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yijie?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  redis:
+        host: 47.99.145.73
+        port: 9527
+        password: a0008612-
+        timeout: 20000
+        cluster:
+            nodes: 47.101.152.186:9001,47.101.152.186:9002,47.101.152.186:9003,47.101.152.186:9004,47.101.152.186:9005,47.101.152.186:9006
+            maxRedirects: 6
+        pool:
+            max-active: 8
+            min-idle: 0
+            max-idle: 8
+            max-wait: -1
+  data:
+    solr:
+      host: http://47.101.152.186:8099/solr4/
+
+eureka:
+  instance:
+    hostname: localhost  #eureka客户端主机实例名称
+    appname: qiujie9901 #客户端服务名
+    instance-id: qiujie:9901 #客户端实例名称
+    prefer-ip-address: true #显示IP
+  client: 
+    service-url: 
+      # 单机
+      #defaultZone: http://localhost:2001/eureka   #把服务注册到eureka注册中心
+#      defaultZone: http://eureka2001.marry.com:2001/eureka/,http://eureka2002.marry.com:2002/eureka/# 集群
+      defaultZone: http://47.99.145.73:2001/eureka/,http://47.99.145.73:2002/eureka/ #集群
+info: 
+   groupId: $project.groupId$
+   artifactId: $project.artifactId$
+   version: $project.version$
+   负责人: qj
+   联系电话: 6666666
